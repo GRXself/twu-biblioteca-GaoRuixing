@@ -71,14 +71,4 @@ public class OptionManagerTest {
         //then
         assertTrue(isUserChooseQuit);
     }
-
-    @Test
-    public void testUserChooseCheckOutBook() {
-        //give
-        int userSelection = 2;
-        //when
-        optionManager.actOnSelection(userSelection);
-        //then
-        assertEquals("Please type the book name you need：\r\n", out.toString());
-    }
 }

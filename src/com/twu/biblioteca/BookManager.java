@@ -46,4 +46,7 @@ public class BookManager {
 
         System.out.println(book.getYearPublished());
     }
+
+    public void checkOut(String bookNameSearchString) {
+    }
 }

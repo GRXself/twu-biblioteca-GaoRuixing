@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.Scanner;
+
 public class OptionManager {
     private final String Quit = "Quit";
     private final String ListOfBooks = "List of books";
@@ -30,6 +32,10 @@ public class OptionManager {
     }
 
     private void checkOutBook() {
+        System.out.println("Please type the book name you need：");
+        Scanner in = new Scanner(System.in);
+        String bookNameSearchString = in.nextLine();
+        bookManager.checkOut(bookNameSearchString);
     }
 
     public void listAllBooks(){
