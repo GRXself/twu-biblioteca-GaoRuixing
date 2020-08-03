@@ -55,7 +55,7 @@ public class OptionManagerTest {
     @Test
     public void testUserNotSelectValidOption() {
         //give
-        int userSelection = 2;
+        int userSelection = 9;
         //when
         optionManager.actOnSelection(userSelection);
         //then
@@ -70,5 +70,15 @@ public class OptionManagerTest {
         boolean isUserChooseQuit = optionManager.actOnSelection(userSelection);
         //then
         assertTrue(isUserChooseQuit);
+    }
+
+    @Test
+    public void testUserChooseCheckOutBook() {
+        //give
+        int userSelection = 2;
+        //when
+        optionManager.actOnSelection(userSelection);
+        //then
+        assertEquals("Please type the book name you need：\r\n", out.toString());
     }
 }

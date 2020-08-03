@@ -11,10 +11,9 @@ public class BibliotecaApp {
 
         //Show options
         OptionManager optionManager = new OptionManager();
-        optionManager.showOptions();
-
         Scanner in = new Scanner(System.in);
         while (true) {
+            optionManager.showOptions();
             int userSelection = in.nextInt();
             boolean isUserChooseQuit = optionManager.actOnSelection(userSelection);
             if (isUserChooseQuit){
