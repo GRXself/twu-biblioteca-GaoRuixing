@@ -11,11 +11,11 @@ public class BookManager {
     private Books books;
 
     public BookManager (){
-        getBooks();
+        books = new Books();
     }
 
-    private void getBooks(){
-        books = new Books();
+    public Books getBooks() {
+        return books;
     }
 
     public void showBooks(){
@@ -23,6 +23,8 @@ public class BookManager {
         Iterator<Book> i = books.getBookList().iterator();
         while(i.hasNext()){
             Book book = i.next();
+            if (book.isCheckOut())
+                continue;
             bookConsoleLinePrinter(book);
         }
     }
@@ -48,6 +50,8 @@ public class BookManager {
     }
 
     public void checkOut(String bookNameSearchString) {
-        ((List<Book>)books.getBookList()).removeIf(book -> book.getBookName().equals(bookNameSearchString));
+        List books = this.books.getBookList();
+        Book book = (Book)books.get(books.indexOf(new Book(bookNameSearchString)));
+        book.setCheckOut(true);
     }
 }

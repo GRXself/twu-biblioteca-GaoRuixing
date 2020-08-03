@@ -24,7 +24,8 @@ public class Books {
             String bookAuthorString = Character.toString(author);
             bookList.add(new Book(bookNameString,
                     bookAuthorString,
-                    yearPublished));
+                    yearPublished,
+                    false));
             maxBookNameCharacterCount = bookNameString.length() > maxBookAuthorCharacterCount ?
                     bookNameString.length() : maxBookNameCharacterCount;
             maxBookAuthorCharacterCount = bookAuthorString.length() > maxBookAuthorCharacterCount ?
