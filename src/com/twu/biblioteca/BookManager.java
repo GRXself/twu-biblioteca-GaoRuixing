@@ -48,5 +48,6 @@ public class BookManager {
     }
 
     public void checkOut(String bookNameSearchString) {
+        ((List<Book>)books.getBookList()).removeIf(book -> book.getBookName().equals(bookNameSearchString));
     }
 }
