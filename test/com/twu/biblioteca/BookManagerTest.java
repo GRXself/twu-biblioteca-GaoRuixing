@@ -32,26 +32,6 @@ public class BookManagerTest {
     }
 
     @Test
-    public void testUserCheckOutBook() {
-        //give
-        String bookName = "A";
-        //when
-        bookManager.checkOut(bookName);
-        bookManager.showBooks();
-        //then
-        assertEquals("Book List:\r\n" +
-                "B    |b  |1991\r\n" +
-                "C    |c  |1992\r\n" +
-                "D    |d  |1993\r\n" +
-                "E    |e  |1994\r\n" +
-                "F    |f  |1995\r\n" +
-                "G    |g  |1996\r\n" +
-                "H    |h  |1997\r\n" +
-                "I    |i  |1998\r\n" +
-                "J    |j  |1999\r\n", out.toString());
-    }
-
-    @Test
     public void testShowSuccessMessageWhenSucceedInCheckOut() {
         //give
         String bookName = "B";

@@ -51,7 +51,15 @@ public class BookManager {
 
     public void checkOut(String bookNameSearchString) {
         List books = this.books.getBookList();
-        Book book = (Book)books.get(books.indexOf(new Book(bookNameSearchString)));
-        book.setCheckOut(true);
+        int booIndex = books.indexOf(new Book(bookNameSearchString));
+        if (booIndex >= 0) {
+            Book book = (Book) books.get(booIndex);
+            book.setCheckOut(true);
+            showSuccessMessageOnCheckOut();
+        }
+    }
+
+    private void showSuccessMessageOnCheckOut() {
+        System.out.println("Thank you! Enjoy the book");
     }
 }
