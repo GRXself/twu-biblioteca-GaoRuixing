@@ -16,8 +16,8 @@ public class Books {
         bookList = new ArrayList<Book>();
         char bookName = 'A';
         for (int i = 0; i < 10; i++) {
-            bookName += 1;
             bookList.add(new Book(Character.toString(bookName)));
+            bookName += 1;
         }
     }
 
