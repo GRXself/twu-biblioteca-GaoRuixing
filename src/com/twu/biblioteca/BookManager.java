@@ -54,12 +54,24 @@ public class BookManager {
         int booIndex = books.indexOf(new Book(bookNameSearchString));
         if (booIndex >= 0) {
             Book book = (Book) books.get(booIndex);
-            book.setCheckOut(true);
-            showSuccessMessageOnCheckOut();
+            if(book.isCheckOut()){
+                showFailedMessageOnNotCheckOut();
+            }
+            else {
+                book.setCheckOut(true);
+                showSuccessMessageOnCheckOut();
+            }
+        }
+        else {
+            showFailedMessageOnNotCheckOut();
         }
     }
 
     private void showSuccessMessageOnCheckOut() {
         System.out.println("Thank you! Enjoy the book");
+    }
+
+    private void showFailedMessageOnNotCheckOut() {
+        System.out.println("Sorry, that book is not available");
     }
 }

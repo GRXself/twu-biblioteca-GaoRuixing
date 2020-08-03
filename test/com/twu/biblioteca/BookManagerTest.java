@@ -34,10 +34,33 @@ public class BookManagerTest {
     @Test
     public void testShowSuccessMessageWhenSucceedInCheckOut() {
         //give
-        String bookName = "B";
+        String bookName = "A";
         //when
         bookManager.checkOut(bookName);
         //then
         assertEquals("Thank you! Enjoy the book\r\n", out.toString());
+    }
+
+    @Test
+    public void testShowFailedMessageWhenBookNotEverInLibrary() {
+        //give
+        String bookName = "bbb";
+        //when
+        bookManager.checkOut(bookName);
+        //then
+        assertEquals("Sorry, that book is not available\r\n", out.toString());
+    }
+
+    @Test
+    public void testShowFailedMessageWhenBookBeingCheckOut() {
+        //give
+        String bookName = "B";
+        //when
+        bookManager.checkOut(bookName);
+        bookManager.checkOut(bookName);
+        //then
+        assertEquals("Thank you! Enjoy the book\r\n" +
+                        "Sorry, that book is not available\r\n",
+                out.toString());
     }
 }
