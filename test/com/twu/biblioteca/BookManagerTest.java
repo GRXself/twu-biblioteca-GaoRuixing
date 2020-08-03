@@ -40,7 +40,7 @@ public class BookManagerTest {
     }
 
     @Test
-    public void testShowFailedMessageWhenBookNotEverInLibrary() {
+    public void testShowFailedMessageWhenRentBookNotEverInLibrary() {
         //give
         BookManager bookManager = new BookManager();
         String bookName = "bbb";
@@ -65,7 +65,7 @@ public class BookManagerTest {
     }
 
     @Test
-    public void testUserCanReturnABook() {
+    public void testShowSuccessMessageWhenSucceedInReturn() {
         //give
         BookManager bookManager = new BookManager();
         String bookName = "C";
@@ -75,5 +75,27 @@ public class BookManagerTest {
         //then
         assertEquals("Thank you! Enjoy the book\r\n" +
                 "Thank you for returning the book\r\n", out.toString());
+    }
+
+    @Test
+    public void testShowFailedMessageWhenReturnBookNotEverInLibrary() {
+        //give
+        BookManager bookManager = new BookManager();
+        String bookName = "ddd";
+        //when
+        bookManager.returnBook(bookName);
+        //then
+        assertEquals("That is not a valid book to return.\r\n", out.toString());
+    }
+
+    @Test
+    public void testShowFailedMessageWhenReturnBookAlreadyReturned() {
+        //give
+        BookManager bookManager = new BookManager();
+        String bookName = "D";
+        //when
+        bookManager.returnBook(bookName);
+        //then
+        assertEquals("That is not a valid book to return.\r\n", out.toString());
     }
 }

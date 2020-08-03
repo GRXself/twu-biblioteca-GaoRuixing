@@ -71,8 +71,16 @@ public class BookManager {
         int bookIndex = books.indexOf(new Book(bookNameSearchString));
         if (bookIndex >= 0) {
             Book book = (Book) books.get(bookIndex);
-            book.setCheckOut(false);
-            showSuccessMessageOnReturn();
+            if(book.isCheckOut()){
+                book.setCheckOut(false);
+                showSuccessMessageOnReturn();
+            }
+            else {
+                showFailedMessageOnBadReturn();
+            }
+        }
+        else {
+            showFailedMessageOnBadReturn();
         }
     }
 
@@ -86,5 +94,9 @@ public class BookManager {
 
     private void showSuccessMessageOnReturn() {
         System.out.println("Thank you for returning the book");
+    }
+
+    private void showFailedMessageOnBadReturn() {
+        System.out.println("That is not a valid book to return.");
     }
 }
