@@ -72,6 +72,7 @@ public class BookManager {
         if (bookIndex >= 0) {
             Book book = (Book) books.get(bookIndex);
             book.setCheckOut(false);
+            showSuccessMessageOnReturn();
         }
     }
 
@@ -81,5 +82,9 @@ public class BookManager {
 
     private void showFailedMessageOnNotCheckOut() {
         System.out.println("Sorry, that book is not available");
+    }
+
+    private void showSuccessMessageOnReturn() {
+        System.out.println("Thank you for returning the book");
     }
 }

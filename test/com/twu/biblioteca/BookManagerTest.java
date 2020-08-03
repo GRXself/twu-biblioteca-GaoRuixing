@@ -72,19 +72,8 @@ public class BookManagerTest {
         //when
         bookManager.checkOut(bookName);
         bookManager.returnBook(bookName);
-        bookManager.showBooks();
         //then
         assertEquals("Thank you! Enjoy the book\r\n" +
-                "Book List:\r\n" +
-                "A    |a  |1990\r\n" +
-                "B    |b  |1991\r\n" +
-                "C    |c  |1992\r\n" +
-                "D    |d  |1993\r\n" +
-                "E    |e  |1994\r\n" +
-                "F    |f  |1995\r\n" +
-                "G    |g  |1996\r\n" +
-                "H    |h  |1997\r\n" +
-                "I    |i  |1998\r\n" +
-                "J    |j  |1999\r\n", out.toString());
+                "Thank you for returning the book\r\n", out.toString());
     }
 }
