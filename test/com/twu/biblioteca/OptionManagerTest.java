@@ -59,6 +59,6 @@ public class OptionManagerTest {
         //when
         optionManager.actOnSelection(userSelection);
         //then
-        assertEquals("Please select a valid option!", out.toString());
+        assertEquals("Please select a valid option!\r\n", out.toString());
     }
 }

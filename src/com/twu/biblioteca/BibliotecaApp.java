@@ -14,8 +14,10 @@ public class BibliotecaApp {
         optionManager.showOptions();
 
         Scanner in = new Scanner(System.in);
-        int userSelection = in.nextInt();
-        optionManager.actOnSelection(userSelection);
+        while (true) {
+            int userSelection = in.nextInt();
+            optionManager.actOnSelection(userSelection);
+        }
 
     }
 }
