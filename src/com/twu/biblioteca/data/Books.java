@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Books {
     private List bookList;
+    private int maxBookNameCharacterCount;
+    private int maxBookAuthorCharacterCount;
 
     public Books() {
         generateBookList();
@@ -18,9 +20,15 @@ public class Books {
         char author = 'a';
         int yearPublished = 1990;
         for (int i = 0; i < 10; i++) {
-            bookList.add(new Book(Character.toString(bookName),
-                    Character.toString(author),
+            String bookNameString = Character.toString(bookName);
+            String bookAuthorString = Character.toString(author);
+            bookList.add(new Book(bookNameString,
+                    bookAuthorString,
                     yearPublished));
+            maxBookNameCharacterCount = bookNameString.length() > maxBookAuthorCharacterCount ?
+                    bookNameString.length() : maxBookNameCharacterCount;
+            maxBookAuthorCharacterCount = bookAuthorString.length() > maxBookAuthorCharacterCount ?
+                    bookAuthorString.length() : maxBookAuthorCharacterCount;
             bookName += 1;
             author += 1;
             yearPublished += 1;
@@ -29,5 +37,13 @@ public class Books {
 
     public List getBookList() {
         return bookList;
+    }
+
+    public int getMaxBookNameCharacterCount() {
+        return maxBookNameCharacterCount;
+    }
+
+    public int getMaxBookAuthorCharacterCount() {
+        return maxBookAuthorCharacterCount;
     }
 }
