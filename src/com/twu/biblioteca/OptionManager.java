@@ -6,12 +6,14 @@ public class OptionManager {
     private final String Quit = "Quit";
     private final String ListOfBooks = "List of books";
     private final String CheckOut = "Check out a book";
+    private final String ReturnBook = "Return a book";
     private BookManager bookManager = new BookManager();
 
     public void showOptions(){
         System.out.println("Please choose an option(choose the number):");
         System.out.println("1. " + ListOfBooks);
         System.out.println("2. " + CheckOut);
+        System.out.println("3. " + ReturnBook);
         System.out.println("0. " + Quit);
     }
 
@@ -27,8 +29,19 @@ public class OptionManager {
             checkOutBook();
             return false;
         }
+        if (userSelection == 3) {
+            returnBook();
+            return false;
+        }
         showInvalidOptionMessage();
         return false;
+    }
+
+    private void returnBook() {
+        System.out.println("Please type the book name you want to return：");
+        Scanner in = new Scanner(System.in);
+        String bookNameSearchString = in.nextLine();
+        bookManager.returnBook(bookNameSearchString);
     }
 
     private void checkOutBook() {

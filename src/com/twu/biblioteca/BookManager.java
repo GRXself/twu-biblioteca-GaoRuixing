@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.data.Books;
 import com.twu.biblioteca.model.Book;
 
-import java.awt.*;
 import java.util.Iterator;
 import java.util.List;
 
@@ -64,6 +63,15 @@ public class BookManager {
         }
         else {
             showFailedMessageOnNotCheckOut();
+        }
+    }
+
+    public void returnBook(String bookNameSearchString) {
+        List books = this.books.getBookList();
+        int bookIndex = books.indexOf(new Book(bookNameSearchString));
+        if (bookIndex >= 0) {
+            Book book = (Book) books.get(bookIndex);
+            book.setCheckOut(false);
         }
     }
 
