@@ -55,10 +55,20 @@ public class OptionManagerTest {
     @Test
     public void testUserNotSelectValidOption() {
         //give
-        int userSelection = 0;
+        int userSelection = 2;
         //when
         optionManager.actOnSelection(userSelection);
         //then
         assertEquals("Please select a valid option!\r\n", out.toString());
+    }
+
+    @Test
+    public void testUserChooseQuitOption() {
+        //give
+        int userSelection = 0;
+        //when
+        boolean isUserChooseQuit = optionManager.actOnSelection(userSelection);
+        //then
+        assertTrue(isUserChooseQuit);
     }
 }

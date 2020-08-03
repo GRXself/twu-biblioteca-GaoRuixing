@@ -16,7 +16,10 @@ public class BibliotecaApp {
         Scanner in = new Scanner(System.in);
         while (true) {
             int userSelection = in.nextInt();
-            optionManager.actOnSelection(userSelection);
+            boolean isUserChooseQuit = optionManager.actOnSelection(userSelection);
+            if (isUserChooseQuit){
+                break;
+            }
         }
 
     }
