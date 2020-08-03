@@ -50,4 +50,14 @@ public class BookManagerTest {
                 "I    |i  |1998\r\n" +
                 "J    |j  |1999\r\n", out.toString());
     }
+
+    @Test
+    public void testShowSuccessMessageWhenSucceedInCheckOut() {
+        //give
+        String bookName = "B";
+        //when
+        bookManager.checkOut(bookName);
+        //then
+        assertEquals("Thank you! Enjoy the book\r\n", out.toString());
+    }
 }
