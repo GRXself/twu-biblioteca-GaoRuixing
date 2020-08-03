@@ -51,4 +51,14 @@ public class OptionManagerTest {
                 "I    |i  |1998\r\n" +
                 "J    |j  |1999\r\n", out.toString());
     }
+
+    @Test
+    public void testUserNotSelectValidOption() {
+        //give
+        int userSelection = 0;
+        //when
+        optionManager.actOnSelection(userSelection);
+        //then
+        assertEquals("Please select a valid option!", out.toString());
+    }
 }
