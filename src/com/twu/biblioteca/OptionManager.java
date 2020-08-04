@@ -11,6 +11,7 @@ public class OptionManager {
     private final String CheckOutMovie = "Check out a movie";
     private final String ReturnMovie = "Return a movie";
     private final String ListOfCheckout = "List of Checkout";
+    private final String ShowUserInfo = "View my information";
     private BookManager bookManager = new BookManager();
     private MovieManager movieManager = new MovieManager();
 
@@ -23,6 +24,7 @@ public class OptionManager {
         System.out.println("5. " + CheckOutMovie);
         System.out.println("6. " + ReturnMovie);
         System.out.println("7. " + ListOfCheckout);
+        System.out.println("8. " + ShowUserInfo);
         System.out.println("0. " + Quit);
     }
 
@@ -58,8 +60,16 @@ public class OptionManager {
             listAllCheckout();
             return false;
         }
+        if (userSelection == 8) {
+            showUserInfo();
+            return false;
+        }
         showInvalidOptionMessage();
         return false;
+    }
+
+    private void showUserInfo() {
+        LoginManager.getInstance().showUserInfo();
     }
 
     private void listAllCheckout() {

@@ -79,4 +79,16 @@ public class LoginManager {
     public User getCurrentUser() {
         return currentUser;
     }
+
+    public void showUserInfo() {
+        System.out.println("Here's your information:");
+        System.out.print("Name: ");
+        System.out.println(currentUser.getName());
+
+        System.out.print("Email: ");
+        System.out.println(currentUser.getEmail());
+
+        System.out.print("Phone Number: ");
+        System.out.println(currentUser.getPhone());
+    }
 }
