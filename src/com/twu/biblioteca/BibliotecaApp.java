@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.model.LoginManager;
+
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -8,6 +10,10 @@ public class BibliotecaApp {
         //Show welcome
         Welcome welcome = new Welcome();
         welcome.showWelcomeMessage();
+
+        //Show login
+        LoginManager loginManager = new LoginManager();
+        loginManager.doLogin();
 
         //Show options
         OptionManager optionManager = new OptionManager();
