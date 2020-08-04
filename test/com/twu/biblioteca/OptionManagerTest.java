@@ -70,4 +70,19 @@ public class OptionManagerTest {
         //then
         assertTrue(isUserChooseQuit);
     }
+
+    @Test
+    public void testUserSelectListOfMovies() {
+        //give
+        int userSelection = 4;
+        //when
+        optionManager.actOnSelection(userSelection);
+        //then
+        assertEquals("Movie List\r\n" +
+                "Movie_A    |1990  |Movie_a  |1\r\n" +
+                "Movie_B    |1991  |Movie_b  |2\r\n" +
+                "Movie_C    |1992  |Movie_c  |3\r\n" +
+                "Movie_D    |1993  |Movie_d  |4\r\n" +
+                "Movie_E    |1994  |Movie_e  |5\r\n", out.toString());
+    }
 }

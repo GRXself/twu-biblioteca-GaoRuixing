@@ -7,13 +7,16 @@ public class OptionManager {
     private final String ListOfBooks = "List of books";
     private final String CheckOut = "Check out a book";
     private final String ReturnBook = "Return a book";
+    private final String ListOfMovies = "List of movies";
     private BookManager bookManager = new BookManager();
+    private MovieManager movieManager = new MovieManager();
 
     public void showOptions(){
         System.out.println("Please choose an option(choose the number):");
         System.out.println("1. " + ListOfBooks);
         System.out.println("2. " + CheckOut);
         System.out.println("3. " + ReturnBook);
+        System.out.println("4. " + ListOfMovies);
         System.out.println("0. " + Quit);
     }
 
@@ -33,8 +36,16 @@ public class OptionManager {
             returnBook();
             return false;
         }
+        if (userSelection == 4) {
+            listAllMovies();
+            return false;
+        }
         showInvalidOptionMessage();
         return false;
+    }
+
+    private void listAllMovies() {
+        movieManager.showMovies();
     }
 
     private void returnBook() {
