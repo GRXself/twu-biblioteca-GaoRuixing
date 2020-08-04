@@ -1,17 +1,23 @@
-package com.twu.biblioteca.model;
+package com.twu.biblioteca;
 
 import com.twu.biblioteca.data.Users;
+import com.twu.biblioteca.model.User;
 
 import java.util.Scanner;
 
 public class LoginManager {
+    private static LoginManager instance = new LoginManager();
     private String id;
     private String password;
     private User currentUser;
     private Users users;
 
-    public LoginManager() {
+    private LoginManager() {
         users = new Users();
+    }
+
+    public static LoginManager getInstance() {
+        return instance;
     }
 
     public boolean login(String id, String password) {
@@ -68,5 +74,9 @@ public class LoginManager {
 
     private void showBadLoginReminder() {
         System.out.println("Bad id or password!");
+    }
+
+    public User getCurrentUser() {
+        return currentUser;
     }
 }

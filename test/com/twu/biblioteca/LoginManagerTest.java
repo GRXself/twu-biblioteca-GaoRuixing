@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.LoginManager;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

@@ -54,6 +54,11 @@ public class BookManager {
             }
             else {
                 book.setCheckOut(true);
+                CheckoutManager.getInstance()
+                        .checkoutBook(book, LoginManager
+                                .getInstance()
+                                .getCurrentUser()
+                                .getId());
                 showSuccessMessageOnCheckOut();
             }
         }
@@ -69,6 +74,11 @@ public class BookManager {
             Book book = books.get(bookIndex);
             if(book.isCheckOut()){
                 book.setCheckOut(false);
+                CheckoutManager.getInstance()
+                        .returnBook(book, LoginManager
+                                .getInstance()
+                                .getCurrentUser()
+                                .getId());
                 showSuccessMessageOnReturn();
             }
             else {

@@ -6,7 +6,16 @@ import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Checkout;
 
 public class CheckoutManager {
+    private static CheckoutManager instance = new CheckoutManager();
     private CheckoutList checkoutList = CheckoutList.getInstance();
+    private int checkoutId = 1;
+
+    private CheckoutManager() {
+    }
+
+    public static CheckoutManager getInstance() {
+        return instance;
+    }
 
     public void showCheckout() {
         System.out.println("Checkout List:");
@@ -45,5 +54,17 @@ public class CheckoutManager {
         System.out.print("  |");
 
         System.out.print(checkout.isReturned());
+    }
+
+    public void checkoutBook(Book book, String userId) {
+        checkoutList.getCheckoutList().add(new Checkout(Integer.toString(checkoutId), "Book", book, userId));
+        checkoutId++;
+    }
+
+    public void returnBook(Book book, String userId) {
+        checkoutList.getCheckoutList().forEach(checkout -> {
+            if (checkout.getCheckOutObject().equals(book) && checkout.getUserId().equals(userId))
+                checkout.setReturned(true);
+        });
     }
 }
