@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Books {
-    private List bookList;
+    private List<Book> bookList;
     private int maxBookNameCharacterCount;
     private int maxBookAuthorCharacterCount;
 
@@ -15,7 +15,7 @@ public class Books {
     }
 
     private void generateBookList() {
-        bookList = new ArrayList<Book>();
+        bookList = new ArrayList<>();
         char bookName = 'A';
         char author = 'a';
         int yearPublished = 1990;
@@ -36,7 +36,7 @@ public class Books {
         }
     }
 
-    public List getBookList() {
+    public List<Book> getBookList() {
         return bookList;
     }
 

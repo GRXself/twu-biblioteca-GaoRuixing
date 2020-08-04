@@ -30,17 +30,17 @@ public class BookManager {
 
     private void bookConsoleLinePrinter(Book book){
         System.out.print(book.getBookName());
-        String nameWhiteSpace = "";
+        StringBuilder nameWhiteSpace = new StringBuilder();
         for (int i = books.getMaxBookNameCharacterCount() - book.getBookName().length() + 4; i > 0; i--) {
-            nameWhiteSpace += " ";
+            nameWhiteSpace.append(" ");
         }
         System.out.print(nameWhiteSpace);
         System.out.print("|");
 
         System.out.print(book.getAuthor());
-        String authorWhiteSpace = "";
+        StringBuilder authorWhiteSpace = new StringBuilder();
         for (int i = books.getMaxBookAuthorCharacterCount() - book.getAuthor().length() + 2; i > 0; i--) {
-            authorWhiteSpace += " ";
+            authorWhiteSpace.append(" ");
         }
         System.out.print(authorWhiteSpace);
         System.out.print("|");
@@ -49,10 +49,10 @@ public class BookManager {
     }
 
     public void checkOut(String bookNameSearchString) {
-        List books = this.books.getBookList();
+        List<Book> books = this.books.getBookList();
         int booIndex = books.indexOf(new Book(bookNameSearchString));
         if (booIndex >= 0) {
-            Book book = (Book) books.get(booIndex);
+            Book book = books.get(booIndex);
             if(book.isCheckOut()){
                 showFailedMessageOnNotCheckOut();
             }
@@ -67,10 +67,10 @@ public class BookManager {
     }
 
     public void returnBook(String bookNameSearchString) {
-        List books = this.books.getBookList();
+        List<Book> books = this.books.getBookList();
         int bookIndex = books.indexOf(new Book(bookNameSearchString));
         if (bookIndex >= 0) {
-            Book book = (Book) books.get(bookIndex);
+            Book book = books.get(bookIndex);
             if(book.isCheckOut()){
                 book.setCheckOut(false);
                 showSuccessMessageOnReturn();

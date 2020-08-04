@@ -14,6 +14,6 @@ public class WelcomeTest {
         String welcomeMessage = welcome.getWelcomeMessage();
         //when
         //then
-        assertTrue(!welcomeMessage.isEmpty());
+        assertFalse(welcomeMessage.isEmpty());
     }
 }
