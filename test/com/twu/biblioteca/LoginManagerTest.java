@@ -5,11 +5,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 public class LoginManagerTest {
+    LoginManager loginManager = LoginManager.getInstance();
 
     @Test
     public void testUserLoginWithRightIdAndPassword() {
         //give
-        LoginManager loginManager = new LoginManager();
         String id = "000-0001";
         String password = "pw1";
         //when
@@ -21,7 +21,6 @@ public class LoginManagerTest {
     @Test
     public void testUserLoginWithRightIdAndBadPassword() {
         //give
-        LoginManager loginManager = new LoginManager();
         String id = "000-0001";
         String password = "badpz";
         //when
@@ -33,7 +32,6 @@ public class LoginManagerTest {
     @Test
     public void testUserLoginWithBadIdAndRightPassword() {
         //give
-        LoginManager loginManager = new LoginManager();
         String id = "badId";
         String password = "pw1";
         //when
@@ -45,7 +43,6 @@ public class LoginManagerTest {
     @Test
     public void testUserLoginWithBadIdAndPassword() {
         //give
-        LoginManager loginManager = new LoginManager();
         String id = "badId";
         String password = "badpz";
         //when

@@ -11,10 +11,16 @@ import static org.junit.Assert.*;
 
 public class BookManagerTest {
 
+    private LoginManager loginManager = LoginManager.getInstance();
+
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private final ByteArrayOutputStream err = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private final PrintStream originalErr = System.err;
+
+    public BookManagerTest() {
+        userLogin();
+    }
 
     @Before
     public void setStreams() {
@@ -26,6 +32,10 @@ public class BookManagerTest {
     public void restoreInitialStreams() {
         System.setOut(originalOut);
         System.setErr(originalErr);
+    }
+
+    private void userLogin() {
+        loginManager.isRightIdPassword("000-0001", "pw1");
     }
 
     @Test

@@ -53,7 +53,7 @@ public class CheckoutManager {
         System.out.print(checkout.getUserId());
         System.out.print("  |");
 
-        System.out.print(checkout.isReturned());
+        System.out.println(checkout.isReturned());
     }
 
     public void checkoutBook(Book book, String userId) {
