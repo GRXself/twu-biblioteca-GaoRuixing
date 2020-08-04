@@ -19,13 +19,10 @@ public class BookManager {
 
     public void showBooks(){
         System.out.println("Book List:");
-        Iterator<Book> i = books.getBookList().iterator();
-        while(i.hasNext()){
-            Book book = i.next();
-            if (book.isCheckOut())
-                continue;
-            bookConsoleLinePrinter(book);
-        }
+        books.getBookList().forEach(book -> {
+            if (!book.isCheckOut())
+                bookConsoleLinePrinter(book);
+        });
     }
 
     private void bookConsoleLinePrinter(Book book){
