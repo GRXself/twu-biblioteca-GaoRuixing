@@ -15,7 +15,8 @@ public class MovieManager {
     public void showMovies() {
         System.out.println("Movie List");
         movies.getMovieList().forEach(movie -> {
-            movieConsoleLinePrinter(movie);
+            if (!movie.isCheckOut())
+                movieConsoleLinePrinter(movie);
         });
     }
 
