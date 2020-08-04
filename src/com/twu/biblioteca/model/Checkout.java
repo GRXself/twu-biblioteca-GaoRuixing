@@ -5,12 +5,14 @@ public class Checkout {
     private String type;
     private Object checkOutObject;
     private String userId;
+    private boolean isReturned;
 
     public Checkout(String id, String type, Object checkOutObject, String userId) {
         this.id = id;
         this.type = type;
         this.checkOutObject = checkOutObject;
         this.userId = userId;
+        isReturned = false;
     }
 
     public String getId() {
@@ -27,5 +29,13 @@ public class Checkout {
 
     public String getUserId() {
         return userId;
+    }
+
+    public boolean isReturned() {
+        return isReturned;
+    }
+
+    public void setReturned(boolean returned) {
+        isReturned = returned;
     }
 }
